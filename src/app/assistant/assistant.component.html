@@ -1,0 +1,148 @@
+<div class="row">
+    <div class="col-sm-12">
+      <app-card [showHeader]="false">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10">
+              <div class="form-group">
+                <!-- <label for="textArea">Text Area</label> -->
+                <textarea class="form-control" id="textArea" rows="3" placeholder="Type Case details Here..."></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group align-center">
+                <div ngbDropdown class="d-inline-block">
+                  <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+                    @if (selectedType === null) {
+                      Select Type
+                    } @else {
+                      {{selectedType}}
+                    }
+                    
+                  </button>
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                    @for (type of lawType; track type) {
+                      <button ngbDropdownItem (click)="selectLawType(type)">{{type}}</button>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <input type="text" class="form-control" id="textBox2" placeholder="Region">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <input type="text" class="form-control" id="textBox3" placeholder="Section and Acts If Any">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group align-center">
+                <!-- <label for="textBox3">Textbox 3</label> -->
+                <button type="button" class="btn btn-primary" [disabled]="isLoading" (click)="toggleLoading()">
+                  <span *ngIf="!isLoading">Submit</span>
+                  <span *ngIf="isLoading">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <!-- <p>
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+          in culpa qui officia deserunt mollit anim id est laborum."
+        </p> -->
+      </app-card>
+    </div>
+    @if (isLoading) {
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
+    @if (isRequested) {
+    <div class="col-sm-12">
+      <app-card cardTitle="Penal Code Section 498A" blockClass="pc-component">
+        <p>
+          The Indian Penal Code Section 498A deals with cruelty towards a married woman by her husband or his relatives. However, there have
+been instances where false accusations have been made under this section. It's important to note that while false cases can indeed
+occur, the majority of cases under Section 498A are legitimate and involve genuine instances of cruelty towards women.
+        </p>
+        <hr>
+        <strong>Here are a few instances and case laws related to false accusations under Section 498A:</strong>
+        <br>
+        <br>
+        <div ngbAccordion>
+          <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+              <button ngbAccordionButton>Rajesh Sharma & Ors. vs. State of U.P. & Anr. (2017):</button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>In this case, the Supreme Court of India observed that misuse of Section 498A had become rampant. The court issued guidelines to
+                  prevent the misuse of this section and also directed the formation of Family Welfare Committees in every district to scrutinize
+                  complaints before any action is taken.</ng-template>
+              </div>
+            </div>
+          </div>
+          <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+              <button ngbAccordionButton>Sushil Kumar Sharma vs. Union of India (2005):</button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>This landmark case highlighted the issue of misuse of Section 498A. The court acknowledged the existence of false cases under this
+                  section and emphasized the need for safeguards against such misuse.
+                  </ng-template>
+              </div>
+            </div>
+          </div>
+          <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+              <button ngbAccordionButton> Arnesh Kumar vs. State of Bihar (2014):</button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>In this case, the Supreme Court emphasized the need to protect innocent individuals from the misuse of Section 498A. The court
+                  stated that the police should not automatically arrest the accused in cases under this section and must first conduct a thorough
+                  investigation.
+                  </ng-template>
+              </div>
+            </div>
+          </div>
+          <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+              <button ngbAccordionButton> Kans Raj vs. State of Punjab (2000):</button>
+            </h2>
+            <div ngbAccordionCollapse>
+              <div ngbAccordionBody>
+                <ng-template>This case highlighted the misuse of Section 498A for extortion and harassment. The court observed that in many instances, false
+                  cases were filed with the intention of pressuring the husband and his relatives.
+                  </ng-template>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <strong>Legal Opinion:</strong>
+          <p>
+             It's essential to approach this issue with sensitivity, as genuine cases of cruelty against women do occur. However, the
+misuse of Section 498A is a concern that has been recognized by the Indian judiciary, leading to various directives and guidelines to
+prevent such misuse while ensuring justice for both parties involved.
+          </p>
+        </div>
+      </app-card>
+    </div>
+  }
+  </div>
+  
